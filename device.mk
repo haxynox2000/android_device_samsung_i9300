@@ -17,10 +17,8 @@
 # Include common makefile
 $(call inherit-product, device/samsung/smdk4412-common/common.mk)
 
-LOCAL_PATH := device/samsung/i9300
-
 # Overlay
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+DEVICE_PACKAGE_OVERLAYS += device/samsung/i9300/overlay
 
 # This device is xhdpi.  However the platform doesn't
 # currently contain all of the bitmaps at xhdpi density so
@@ -31,12 +29,13 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 # Init files
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/fstab.smdk4x12:root/fstab.smdk4x12 \
-    $(LOCAL_PATH)/rootdir/init.target.rc:root/init.target.rc
+    device/samsung/i9300/rootdir/fstab.smdk4x12:root/fstab.smdk4x12 \
+    device/samsung/i9300/rootdir/init.target.rc:root/init.target.rc
 
 # Audio
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/tiny_hw.xml:system/etc/sound/m0
+    device/samsung/i9300/configs/tiny_hw.xml:system/etc/sound/m0 \
+    device/samsung/i9300/configs/tiny_hw.xml:system/etc/sound/i9300
 
 # Camera Wrapper
 PRODUCT_PACKAGES += \
@@ -48,7 +47,7 @@ PRODUCT_PACKAGES += \
 
 # Gps
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/gps.xml:system/etc/gps.xml
+    device/samsung/i9300/configs/gps.xml:system/etc/gps.xml
 
 # Product specific Packages
 PRODUCT_PACKAGES += \
@@ -58,7 +57,7 @@ PRODUCT_PACKAGES += \
 
 # NFC
 PRODUCT_PACKAGES += \
-	nfc.exynos4 \
+    nfc.exynos4 \
     libnfc \
     libnfc_jni \
     Nfc \
@@ -71,13 +70,12 @@ PRODUCT_COPY_FILES += \
 
 # NFCEE access control
 ifeq ($(TARGET_BUILD_VARIANT),user)
-    NFCEE_ACCESS_PATH := $(LOCAL_PATH)/configs/nfcee_access.xml
-else
-    NFCEE_ACCESS_PATH := $(LOCAL_PATH)/configs/nfcee_access_debug.xml
-endif
-
 PRODUCT_COPY_FILES += \
-    $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
+    device/samsung/i9300/configs/nfcee_access.xml:system/etc/nfcee_access.xml
+else
+PRODUCT_COPY_FILES += \
+    device/samsung/i9300/configs/nfcee_access_debug.xml:system/etc/nfcee_access.xml
+endif
 
 PRODUCT_PACKAGES += \
     com.android.nfc_extras
@@ -86,7 +84,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.ril_class=SamsungExynos4RIL \
     ro.telephony.call_ring.multiple=false \
-    ro.telephony.call_ring.delay=3000
+    ro.telephony.call_ring.delay=2000
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
