@@ -22,6 +22,7 @@
 # RIL
 BOARD_PROVIDES_LIBRIL := true
 BOARD_MODEM_TYPE := xmm6262
+BOARD_RIL_CLASS := ../../../hardware/samsung/ril
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/i9300/bluetooth
@@ -35,8 +36,8 @@ TARGET_RECOVERY_FSTAB := device/samsung/i9300/rootdir/fstab.smdk4x12
 RECOVERY_FSTAB_VERSION := 2
 
 # Selinux
-#BOARD_SEPOLICY_DIRS := \
-#    device/samsung/i9300/selinux
+BOARD_SEPOLICY_DIRS := \
+    device/samsung/i9300/selinux
 
 BOARD_SEPOLICY_UNION += \
     bluetooth.te \

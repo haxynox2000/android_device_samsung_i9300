@@ -38,8 +38,8 @@ PRODUCT_COPY_FILES += \
     device/samsung/i9300/configs/tiny_hw.xml:system/etc/sound/i9300
 
 # Camera Wrapper
-PRODUCT_PACKAGES += \
-    camera.exynos4
+#PRODUCT_PACKAGES += \
+#    camera.exynos4
 
 # Sensors
 PRODUCT_PACKAGES += \
