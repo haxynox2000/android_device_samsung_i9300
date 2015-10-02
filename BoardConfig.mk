@@ -65,12 +65,12 @@ BOARD_SEPOLICY_UNION += \
     servicemanager.te \
     service_contexts \
     surfaceflinger.te \
-#    sysinit.te \
     system_app.te \
     system_server.te \
     ueventd.te \
     vold.te \
     wpa_supplicant.te
+#    sysinit.te
 
 # assert
 TARGET_OTA_ASSERT_DEVICE := m0,i9300,GT-I9300
