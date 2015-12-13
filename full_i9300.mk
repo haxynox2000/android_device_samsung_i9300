@@ -24,7 +24,7 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 PRODUCT_NAME := full_i9300
 PRODUCT_DEVICE := i9300
 PRODUCT_BRAND := samsung
-PRODUCT_MODEL := GT-i9300
+PRODUCT_MODEL := GT-I9300
 PRODUCT_MANUFACTURER := samsung
 PRODUCT_RESTRICT_VENDOR_FILES := false
 
