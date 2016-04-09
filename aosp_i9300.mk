@@ -15,8 +15,6 @@
 #
 $(call inherit-product, device/samsung/i9300/full_i9300.mk)
 
+$(call inherit-product, vendor/haxynox/config/common.mk)
+
 PRODUCT_NAME := aosp_i9300
-
-PRODUCT_PACKAGES += \
-    Launcher3
-
