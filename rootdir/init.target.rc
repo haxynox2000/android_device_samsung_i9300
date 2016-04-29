@@ -28,6 +28,10 @@ service cpboot-daemon /sbin/cbd -d
     restorecon /sys/class/sec/gps/GPS_PWR_EN/value
     restorecon /sys/class/sec/gps/GPS_PWR_EN/direction
 
+    write /data/.cid.info 0
+    restorecon /data/.cid.info
+    restorecon /data/ISP_CV
+
 # Start GPS daemon
 service gps-daemon gps_daemon.sh
     class main
@@ -35,3 +39,5 @@ service gps-daemon gps_daemon.sh
     user gps
     group system inet sdcard_rw
     seclabel u:r:glgps:s0
+
+
